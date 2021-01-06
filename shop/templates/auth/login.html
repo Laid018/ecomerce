@@ -1,0 +1,44 @@
+{% extends 'layout.html' %} 
+{% block title %} Ecomerce | Login {% endblock %} 
+{% block css %} 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+{% endblock %} 
+{% block content %}
+<div class="container-fluid pt-4">
+  <div class="row mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb ml-4">
+        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="/register/">Registrarse</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Iniciar sesión</li>
+      </ol>
+    </nav>
+  </div> 
+  <div class="row mt-4 mb-3">
+    <div class="col-md-8 m-auto">
+      <div class="card">
+        <div class="card-header bg-info p-3">
+          <h3 class="text-white text-center mt-2">Acceso de Usuarios</h3>
+          {% include '_messages-helpers.html' %}
+        </div>
+        <div class="card-body">
+          {% from "_form-helpers.html" import render_field %}
+          <form method="POST">
+            <div>
+              {{ render_field(form.email, class="form-control", placeholder="Ingresa tu email") }}
+              {{ render_field(form.password, class="form-control", placeholder="Ingresa tu clave") }}
+            </div>
+            <p>
+              <input
+                type="submit"
+                value="Acceder"
+                class="btn btn-primary btn-block mt-3"
+              />
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

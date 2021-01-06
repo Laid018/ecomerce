@@ -1,0 +1,53 @@
+{% extends 'layout.html' %} 
+{% block title %} Ecomerce | Add Product {% endblock %}
+{% block css %} {% endblock %}
+
+{% block content %} 
+<div class="container-fluid mt-4 pt-4">
+<div class="row pt-4 mb-4">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="card-header bg-info text-white p-3 mb-3">
+      <h3 class="text-white text-center mt-2">Agregar Producto</h3>
+    </div>
+    <!-- {% include '_messages-helpers.html' %} -->
+    {% from '_form-helpers.html' import render_field %}
+    <form action="" method="POST" enctype="multipart/form-data">
+      {{render_field(form.name, class="form-control", placeholder="Ingresa el nombre")}} 
+      {{render_field(form.price, class="form-control", placeholder="Ingresa el precio")}}
+      {{render_field(form.discount, class="form-control", placeholder="Ingresa el descuento (opcional)")}}
+      {{render_field(form.stock, class="form-control", placeholder="Ingresa el stock")}}
+      <label for="brand">Agregar Marca</label>
+      <select id="brand" name="brand" class="form-control mb-2" required>
+        <option value="">Seleciona una Marca</option>
+        {% for brand in brands %}
+        <option value="{{brand.id}}">{{brand.name}}</option>
+        {% endfor %}
+      </select>
+      <label for="category">Agregar Categoria</label>
+      <select id="category" name="category" class="form-control mb-2" required>
+        <option value="">Seleciona una Categoria</option>
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+      </select>
+      {{render_field(form.colors, class="form-control", placeholder="Ingresa los colores")}}
+      {{render_field(form.description, class="form-control", placeholder="Ingresa una descripción", rows="10")}}
+      <div class="container pt-4">
+          <div class="row">
+            <div class="col-md-4">{{render_field(form.image_1, class="form-control", style="overflow: hidden;")}}</div>
+            <div class="col-md-4">{{render_field(form.image_2, class="form-control", style="overflow: hidden;")}}</div>
+            <div class="col-md-4">{{render_field(form.image_3, class="form-control", style="overflow: hidden;")}}</div>
+          </div>
+      </div>
+      <button class="btn btn-primary btn-block mt-4">Agregar Producto</button>
+    </form>
+  </div>
+  <div class="col-md-2">
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %} {% endblock %}

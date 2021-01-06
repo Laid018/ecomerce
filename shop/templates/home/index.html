@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+{% block title %} Ecomerce | Home {% endblock %}
+{% block css %} {% endblock %}
+
+{% block content %} 
+<div class="container-fluid pt-4">
+  <!-- Titulo -->
+  <div class="row pt-4">
+    {% include '_messages-helpers.html' %}
+    <h1 class="text-muted m-auto pt-4">Ecomerce tu tienda online</h1>
+  </div>
+  <!-- slides -->
+  <div class="row p-3">
+    <div class="grid">
+      {% for product in products %}
+      <div class="productos">
+        <div class="card bg-secondary">
+          <div class="card-header">
+            <h5>{{product.name}}</h5>
+          </div>
+          <div class="card card-body bg-secondary align-items-center">
+            <img src="{{url_for('static', filename='imagenes/' + product.image_1)}}" alt="product imagen" width="40%" height="50%">
+          </div>
+          <div class="card-footer">
+            <p>{{product.description}}</p>
+            <h5>Precio <span class="float-right"> ${{product.price}}</span></h5>
+          </div>
+        </div> 
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %} {% endblock %}

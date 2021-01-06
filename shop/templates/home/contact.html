@@ -1,0 +1,53 @@
+{% extends 'layout.html' %} 
+{% block title %} Ecomerce | Contact {% endblock %}
+{% block css %} {% endblock %}
+
+{% block content %} 
+<div class="container-fluid pt-3">
+  <!-- Titulo -->
+  <div class="row pt-4">
+    {% include '_messages-helpers.html' %}
+  </div>
+  <!-- Contact -->
+  <div class="row p-5 mt-4 ml-auto">
+    <div class="col-md-4 ml-auto">
+      <h3 class="text-muted">Contacto con el showroom</h3>
+      <ul class="navbar-nav py-3">
+        <li class="navbar-item p-2"><a class="navbar-links" href="#"><i class="fas fa-phone-alt fa-lg mr-2"></i><span>43245689</span></a></li>
+        <li class="navbar-item p-2"><a class="navbar-links" href="#"><i class="fab fa-whatsapp fa-lg mr-2"></i><span>3816481235</span></a></li>
+        <li class="navbar-item p-2"><a class="navbar-links" href="#"><i class="fab fa-facebook fa-lg mr-2"></i><span>Facebook</span></a></li>
+        <li class="navbar-item p-2 mb-3"><a class="navbar-links" href="#"><i class="fab fa-instagram fa-lg mr-2"></i><span>@lunarosa.tuc</span></a></li>
+      </ul>
+    </div>
+    <!-- form-contacto -->
+    <div class="col-md-8">
+      <h3 class="text-muted text-center">Formulario de contacto con el showroom</h3>
+      <form class="contact_form" action="#" method="POST">
+        <div class="form-group">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Ingresa tu nombre"/>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="Ingresa tu email"/>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="form-label">
+              Teléfono
+          </label>
+          <input type="text" id="phone" name="phone" class="form-control" placeholder="Ingresa tu teléfono"/>
+        </div>
+        <div class="form-group">
+            <label for="message" class="form-label">
+                Mensaje
+            </label>
+            <textarea id="message" name="message" cols="20" rows="5" placeholder="Ingresa tu mensaje aquí" class="form-control"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary float-right" value="Enviar"/>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %} {% endblock %}

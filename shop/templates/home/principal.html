@@ -1,0 +1,72 @@
+{% extends 'layout.html' %} 
+{% block title %} Ecomerce | Principal {% endblock %}
+{% block css %} 
+<style type="text/css" media="screen">
+.navbar-links{
+  transition: ease 0.2s;
+  transition-property: font-size;
+}
+.navbar-links:hover{
+  font-size: 14px;
+}
+</style>
+<link href="{{url_for('static', filename='css/table/stacktable.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %} 
+<div class="container-fluid pt-4">
+  <!-- Titulo -->
+  <div class="row pt-4">
+    <h1 class="text-muted m-auto pt-4">Ecomerce tu tienda online</h1>
+  </div>
+  <!-- slides -->
+  <div class="row p-3">
+    <div class="card-header bg-info p-2 w-100">
+      <h4 class="text-white text-center pt-3">Listado de Productos</h4>
+    </div>
+    <table id="table" class="table table-sm table-responsive table-striped table-condensed table-hover text-center" style="overflow-x: scroll;">
+      <thead>
+        <th>Id</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Descuento</th>
+        <th>Stock</th>
+        <th>Marca</th>
+        <th>Categoria</th>
+        <th>Imagen</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>${{product.price}}</td>
+          <td>{{product.discount}}%</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.brand.name}}</td>
+          <td>{{product.category.name}}</td>
+          <td><img src="{{url_for('static', filename='imagenes/'+ product.image_1)}}" alt="imagen" width="30" height="40"></td>
+          <td>
+            <a class="navbar-links" href="#"><i class="fas fa-edit fa-lg"></i></a>
+          </td>
+          <td>
+            <a class="navbar-links" href="#"><i class="fas fa-trash fa-lg text-danger"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %} 
+<script src="{{url_for('static', filename='js/table/stacktable.js')}}" charset="utf-8"></script>
+<script charset="utf-8">
+  $('#table').stacktable({
+    myClass:'stacktable small-only'
+  });
+</script>
+{% endblock %}

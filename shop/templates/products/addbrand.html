@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} 
+{% block title %} {% endblock %}
+{% block css %} {% endblock %}
+
+{% block content %} 
+<div class="container-fluid pt-4 mt-4">
+  <div class="row mt-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      {% include '_messages-helpers.html' %}
+      {% if brands %}
+      <div class="card-header bg-info text-white p-3 mb-3">
+        <h3 class="text-white text-center mt-2"> Agregar marca</h3>
+      </div>
+      <form action="/addbrand/" method="POST">
+        <input type="text" name="brand" class="form-control" placeholder="Ingreasa una marca">
+        <input type="submit" value="Agregar Marca" class="btn btn-block btn-primary mt-3">
+      </form>
+      {% else %}
+      <div class="card-header bg-info text-white p-3 mb-3">
+        <h3 class="text-white text-center mt-2"> Agregar categoria</h3>
+      </div>
+      <form action="/addcategory/" method="POST">
+        <input type="text" name="category" class="form-control" placeholder="Ingreasa una categoria">
+        <input type="submit" value="Agregar Categoria" class="btn btn-block btn-primary mt-3">
+      </form>
+      {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %} {% endblock %}
